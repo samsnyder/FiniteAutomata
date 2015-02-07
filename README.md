@@ -25,6 +25,7 @@ Examples of inputs are
 
 ### Getting started
 
+#### Creating and running a machine
 This code snippet will create a machine from the input regular expression.
 
 ```
@@ -34,4 +35,54 @@ Machine machine = Machine.parseRegex("a|b");
 This will then test that machine against an input string and return a boolean representing whether the input reached an accepting state in the machine (it matched the regular expression).
 ```
 machine.matchString("a")
+```
+
+#### Viewing a machine
+
+You can view the structure of a machine using the [JUNG](http://jung.sourceforge.net) framework.
+
+The 'createGraph' method of Machine allows you to get a JUNG graph.
+
+The code below will output an image of your graph to the disk.
+
+```
+Graph graph = machine.createGraph();
+
+Layout<State, Transition> layout = new CircleLayout(graph);
+layout.setSize(new Dimension(1000,1000));
+VisualizationViewer<State, Transition> vv = new VisualizationViewer<State, Transition>(layout);
+vv.setPreferredSize(new Dimension(350,350));
+
+VisualizationImageServer<State, Transition> vis = new VisualizationImageServer<State, Transition>(vv.getGraphLayout(), vv.getGraphLayout().getSize());
+
+Transformer<State, Paint> vertexPaint = new Transformer<State, Paint>() {
+    public Paint transform(State i) {
+        if(machine.stateIsAccepting(i)) {
+            return Color.GREEN;
+        }else if(machine.getStartState() == i){
+            return Color.YELLOW;
+        }else{
+            return Color.RED;
+        }
+    }
+};
+vis.getRenderContext().setVertexFillPaintTransformer(vertexPaint);
+
+Transformer<Transition, String> edgeLabel = new Transformer<Transition, String>() {
+    public String transform(Transition i) {
+        return i.getLetter().toString();
+    }
+};
+vis.getRenderContext().setEdgeLabelTransformer(edgeLabel);
+
+BufferedImage image = (BufferedImage) vis.getImage(new Point2D.Double(vv.getGraphLayout().getSize().getWidth() / 2, vv.getGraphLayout().getSize().getHeight() / 2),
+                                                   new Dimension(vv.getGraphLayout().getSize()));
+
+File outputfile = new File("machine.png");
+
+try {
+    ImageIO.write(image, "png", outputfile);
+} catch (IOException e) {
+    e.printStackTrace();
+}
 ```
