@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Represents a state in the NFA
+ * <p>Represents a state in the NFA.</p>
  *
  * @author Sam Snyder
  */
@@ -14,16 +14,16 @@ public class State implements Cloneable{
     private Set<Transition> transitions;
 
     /**
-     * Creates a state with initialised empty sets
+     * <p>Creates a state with initialised empty sets.</p>
      */
     protected State(){
         transitions = new HashSet<Transition>();
     }
 
     /**
-     * Adds all the transitions to the current graph if they are not there
+     * <p>Adds all the transitions to the current graph if they are not there
      * already, then recursively does the same to all destinations of
-     * the transitions
+     * the transitions.</p>
      *
      * @param g the graph to add to
      */
@@ -37,9 +37,9 @@ public class State implements Cloneable{
     }
 
     /**
-     * Tests whether the string given can go further from this node.
+     * <p>Tests whether the string given can go further from this node.
      * If it can, it recursively tries all the transitions, reducing
-     * the length of the string by one
+     * the length of the string by one.</p>
      *
      * @param s the (possibly partial) string to test
      * @param m machine the state is in
@@ -70,7 +70,7 @@ public class State implements Cloneable{
     }
 
     /**
-     * Adds a transition from this state to another, with a letter as the edge
+     * <p>Adds a transition from this state to another, with a letter as the edge.</p>
      *
      * @param s the destination state
      * @param l the letter on the edge (could be null string)

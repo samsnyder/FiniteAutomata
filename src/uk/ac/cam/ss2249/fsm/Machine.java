@@ -21,9 +21,9 @@ public class Machine {
     private static final int PLACE_OFFSET = 200;
 
     /**
-     * Creates a machine and initialises sets.
+     * <p>Creates a machine and initialises sets.</p>
      *
-     * All instances are created from local static methods.
+     * <p>All instances are created from local static methods.</p>
      */
     private Machine(){
         states = new HashSet<State>();
@@ -31,7 +31,7 @@ public class Machine {
     }
 
     /**
-     * Gets the starting state, s.
+     * <p>Gets the starting state, s.</p>
      *
      * @return start state
      */
@@ -40,7 +40,7 @@ public class Machine {
     }
 
     /**
-     * Returns whether a state is an accepting state in this machine
+     * <p>Returns whether a state is an accepting state in this machine.</p>
      *
      * @param s the state to test
      * @return whether s is accepting
@@ -50,7 +50,7 @@ public class Machine {
     }
 
     /**
-     * Tests if a string results in an accepting state (i.e matches the regular expression).
+     * <p>Tests if a string results in an accepting state (i.e matches the regular expression).</p>
      *
      * @param s string to test
      * @return whether the string matches the regular expression this machine represents
@@ -60,9 +60,9 @@ public class Machine {
     }
 
     /**
-     * Creates a JUNG graph to represent the machines structure.
+     * <p>Creates a JUNG graph to represent the machines structure.</p>
      *
-     * http://jung.sourceforge.net
+     * <p><a href="http://jung.sourceforge.net">http://jung.sourceforge.net</a></p>
      *
      * @return a JUNG graph
      */
@@ -73,11 +73,13 @@ public class Machine {
     }
 
     /**
-     * Parses a regular expression concrete syntax string.
+     * <p>Parses a regular expression concrete syntax string.</p>
      *
-     * "a|b" is equivalent to Union(Ma, Mb)
-     * "ab" is equivalent to Concat(Ma, Mb)
-     * "a*" is equivalent to Star(Ma)
+     * <ul>
+     * <li>"a|b" is equivalent to Union(Ma, Mb)</li>
+     * <li>"ab" is equivalent to Concat(Ma, Mb)</li>
+     * <li>"a*" is equivalent to Star(Ma)</li>
+     * </ul>
      *
      * @param r the concrete syntax regular expression
      * @return the machine representing the given regular expression
@@ -170,10 +172,10 @@ public class Machine {
     }
 
     /**
-     * Returns the machine representing the union of the given set of machines (unordered).
+     * <p>Returns the machine representing the union of the given set of machines (unordered).</p>
      *
-     * This machine will result in an accepting state if any one of the given machines
-     * results in an accepting state.
+     * <p>This machine will result in an accepting state if any one of the given machines
+     * results in an accepting state.</p>
      *
      * @param machines machines to union
      * @return a new machine representing the union of these machines
@@ -196,10 +198,10 @@ public class Machine {
     }
 
     /**
-     * Returns the machine representing the concatenation of the given list of machines (ordered).
+     * <p>Returns the machine representing the concatenation of the given list of machines (ordered).</p>
      *
-     * This machine will result in an accepting state if all of the given machines result in
-     * an accepting state.
+     * <p>This machine will result in an accepting state if all of the given machines result in
+     * an accepting state.</p>
      *
      * @param machines machines to concatenate
      * @return a new machine representing the concatenation of these machines
@@ -221,13 +223,13 @@ public class Machine {
     }
 
     /**
-     * Returns the machine representing the star operation of a given machine.
+     * <p>Returns the machine representing the star operation of a given machine.</p>
      *
-     * This machine will result in an accepting state if the given machine results in
-     * an accepting state n >= 0 times.
+     * <p>This machine will result in an accepting state if the given machine results in
+     * an accepting state n >= 0 times.</p>
      *
-     * This means the null string as well as any number of strings matching the
-     * original machine will result in an accepting state in the new machine.
+     * <p>This means the null string as well as any number of strings matching the
+     * original machine will result in an accepting state in the new machine.</p>
      *
      * @param m the machine to star
      * @return the machine representing the star operation of the given machine
@@ -247,8 +249,8 @@ public class Machine {
     }
 
     /**
-     * Returns the machine which will result in an accepting state when a letter l
-     * is applied to it.
+     * <p>Returns the machine which will result in an accepting state when a letter l
+     * is applied to it.</p>
      *
      * @param l the letter to represent
      * @return the machine representing the letter

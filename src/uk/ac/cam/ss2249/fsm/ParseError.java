@@ -1,7 +1,7 @@
 package uk.ac.cam.ss2249.fsm;
 
 /**
- * An error occurred while parsing the concrete syntax regular expression
+ * <p>An error occurred while parsing the concrete syntax regular expression</p>
  *
  * @author Sam Snyder
  */

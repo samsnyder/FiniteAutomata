@@ -1,16 +1,17 @@
 package uk.ac.cam.ss2249.fsm;
 
 /**
- * Represents a letter in the alphabet.
+ * <p>Represents a letter in the alphabet.</p>
  *
- * If value is equal to NULL_CHAR, it represents the null string.
+ * <p>If value is equal to NULL_CHAR, it represents the null string.</p>
  */
 public class Letter {
     private char value;
     private static final char NULL_CHAR = 199;
 
     /**
-     * Creates a letter with a character
+     * <p>Creates a letter with a character</p>
+     *
      * @param v the character
      */
     protected Letter(char v){
@@ -18,7 +19,7 @@ public class Letter {
     }
 
     /**
-     * Tests if the letter is equal to a character
+     * <p>Tests if the letter is equal to a character</p>
      *
      * @param c the character to test equality for
      * @return the result
@@ -28,7 +29,7 @@ public class Letter {
     }
 
     /**
-     * Tests if the letter represents a null string
+     * <p>Tests if the letter represents a null string</p>
      *
      * @return whether this letter represents a null string
      */
@@ -37,7 +38,7 @@ public class Letter {
     }
 
     /**
-     * Returns a letter representing the null string
+     * <p>Returns a letter representing the null string</p>
      *
      * @return the letter
      */
