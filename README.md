@@ -28,12 +28,12 @@ Examples of inputs are
 #### Creating and running a machine
 This code snippet will create a machine from the input regular expression.
 
-```
+```java
 Machine machine = Machine.parseRegex("a|b");
 ```
 
 This will then test that machine against an input string and return a boolean representing whether the input reached an accepting state in the machine (it matched the regular expression).
-```
+```java
 machine.matchString("a")
 ```
 
@@ -45,7 +45,7 @@ The 'createGraph' method of Machine allows you to get a JUNG graph.
 
 The code below will output an image of your graph to the disk.
 
-```
+```java
 Graph graph = machine.createGraph();
 
 Layout<State, Transition> layout = new CircleLayout(graph);
